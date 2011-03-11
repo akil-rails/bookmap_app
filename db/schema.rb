@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20110307105030) do
   create_table "members", :force => true do |t|
     t.string   "card_id"
     t.string   "address"
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.decimal  "lat",        :precision => 38, :scale => 10
+    t.decimal  "lng",        :precision => 38, :scale => 10
     t.integer  "store_id",   :precision => 38, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"

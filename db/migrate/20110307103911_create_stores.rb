@@ -3,8 +3,8 @@ class CreateStores < ActiveRecord::Migration
     create_table :stores do |t|
       t.string :name
       t.string :address
-      t.integer :lat
-      t.integer :lng
+      t.float :lat
+      t.float :lng
 
       t.timestamps
     end
