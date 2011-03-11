@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookmap</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+
+	<!-- to work with maps and the google load api --> 		
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAhmJjeknJrwu7G-49DQhrcxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSl_GOF0sXhk_eJjvc-x1GE0lgKUg"></script>
+	<script type="text/javascript">
+		google.load("maps", "3", {"other_params":"sensor=false"});
+	</script>
+	
+	
+	<script type="text/javascript">
+	    $(document).ready(function() {
+					initGMap();
+	        <%= yield :javascript %>					
+	    });
+	</script>	
+</head>
+<body>
+	<div class="container">
+		<%= yield %>
+  <div class="span-24">
+          <p class="quiet push-10">© 2010 Strata Labs. - </p>
+  </div>	
+</body>
+</html>

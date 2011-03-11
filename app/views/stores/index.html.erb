@@ -1,0 +1,14 @@
+<%= content_for :javascript do -%>
+	<% for store in @stores -%>
+		addStoreMarker(<%= store.lat %>, <%= store.lng %>, '<%= store.name %>', '<%= image_path("library.png") %>', '<%= link_to store.name, store %>');
+	<% end -%>
+	gMap.panToBounds(gLatLngBounds);
+<% end -%>
+
+<div class="span-23 last">
+	<br/>
+	<h3> Stores in Bangalore (<%= @stores.count %>)</h3>
+	
+</div>
+<div class="span-23 last" id="map_canvas">
+</div>

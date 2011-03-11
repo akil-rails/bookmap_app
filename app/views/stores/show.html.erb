@@ -1,0 +1,19 @@
+<%= content_for :javascript do -%>
+	addStoreMarker(<%= @store.lat %>, <%= @store.lng %>, '<%= @store.name %>', '<%= image_path("library.png") %>')
+	<% for member in @store.members -%>
+		addMarker(<%= member.lat %>, <%= member.lng %>, '<%= member.card_id %>');
+	<% end -%>
+	setCenter(<%= @store.lat %>, <%= @store.lng %>)
+	gMap.panToBounds(gLatLngBounds);
+<% end -%>
+
+<div class="span-18">
+	<br/>
+	<h4> Members of <%= @store.name %> (<%= @store.members.count %>)</h4>
+</div>
+<div class="span-4 last" style="float:right">
+	<br/>
+	<%= link_to 'Back', stores_path %>
+</div>
+<div class="span-23 last" id="map_canvas">
+</div>
