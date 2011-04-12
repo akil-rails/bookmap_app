@@ -1,6 +1,6 @@
 <%= content_for :javascript do -%>
 	<% for store in @stores -%>
-		addStoreMarker(<%= store.lat %>, <%= store.lng %>, '<%= store.name %>', '<%= image_path("library.png") %>', '<%= link_to store.name, store %>');
+		addStoreMarker(<%= store.lat %>, <%= store.lng %>, '<%= store.name %>', '<%= image_path("store_#{store.category}.png") %>', '<%= store_content(store) %>');
 	<% end -%>
 	gMap.panToBounds(gLatLngBounds);
 <% end -%>

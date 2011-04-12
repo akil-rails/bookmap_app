@@ -1,5 +1,5 @@
 <%= content_for :javascript do -%>
-	addStoreMarker(<%= @store.lat %>, <%= @store.lng %>, '<%= @store.name %>', '<%= image_path("library.png") %>')
+	addStoreMarker(<%= @store.lat %>, <%= @store.lng %>, '<%= @store.name %>', '<%= image_path("store_#{@store.category}.png") %>')
 	<% for member in @store.members -%>
 		addMarker(<%= member.lat %>, <%= member.lng %>, '<%= member.card_id %>');
 	<% end -%>
