@@ -21,12 +21,13 @@ function initGMap() {
 	gLatLngBounds = new google.maps.LatLngBounds();
 }
 
-function addMarker(lat, lng, title) {
+function addMarker(lat, lng, title, iconURL) {
 	var point = new google.maps.LatLng(lat, lng);
 	var marker = new google.maps.Marker({
 																				position: point,
 																				map: gMap,
-																				title: title 
+																				icon: iconURL,
+																				title: title
 																			});																			
 	gLatLngBounds.extend(point);
 }

@@ -1,7 +1,7 @@
 <%= content_for :javascript do -%>
 	addStoreMarker(<%= @store.lat %>, <%= @store.lng %>, '<%= @store.name %>', '<%= image_path("store_#{@store.category}.png") %>')
 	<% for member in @store.members -%>
-		addMarker(<%= member.lat %>, <%= member.lng %>, '<%= member.card_id %>');
+		addMarker(<%= member.lat %>, <%= member.lng %>, '<%= member.card_id %>', '<%= image_path(member_image_name(member)) %>');
 	<% end -%>
 	setCenter(<%= @store.lat %>, <%= @store.lng %>)
 	gMap.panToBounds(gLatLngBounds);
