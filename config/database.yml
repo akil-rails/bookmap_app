@@ -2,9 +2,9 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: oracle_enhanced
-  database: opac
+  database: xe
   username: bookmap
-  password: FebI2011
+  password: bookmap
   cursor_sharing: similar
 
 # Warning: The database defined as "test" will be erased and

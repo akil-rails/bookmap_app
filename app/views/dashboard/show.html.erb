@@ -1,0 +1,5 @@
+<table>
+  <% @stores.each do | store | -%>
+    <tr><td><%= store.id %></td><td><%= store.name %></td><td><%= pluralize store.members.size, 'members' %></td></tr>
+  <% end -%>
+</table>

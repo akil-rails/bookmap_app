@@ -10,25 +10,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307105030) do
+ActiveRecord::Schema.define(:version => 20110525075347) do
 
-  create_table "members", :force => true do |t|
-    t.string   "card_id"
-    t.string   "address"
-    t.decimal  "lat",        :precision => 38, :scale => 10
-    t.decimal  "lng",        :precision => 38, :scale => 10
-    t.integer  "store_id",   :precision => 38, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "members", :id => false, :force => true do |t|
+    t.integer   "id",                               :precision => 38, :scale => 0,                   :null => false
+    t.string    "card_id"
+    t.string    "address"
+    t.decimal   "lat",                              :precision => 38, :scale => 10
+    t.decimal   "lng",                              :precision => 38, :scale => 10
+    t.integer   "store_id",                         :precision => 38, :scale => 0
+    t.timestamp "created_at",          :limit => 6
+    t.timestamp "updated_at",          :limit => 6
+    t.integer   "plan_id",                          :precision => 38, :scale => 0
+    t.timestamp "start_date",          :limit => 6
+    t.timestamp "expiry_date",         :limit => 6
+    t.decimal   "distance_from_store",                                              :default => 0.0
   end
 
-  create_table "stores", :force => true do |t|
+  create_table "stores", :id => false, :force => true do |t|
+    t.integer  "id",                         :precision => 38, :scale => 0,                 :null => false
     t.string   "name"
     t.string   "address"
-    t.decimal  "lat",        :precision => 38, :scale => 10
-    t.decimal  "lng",        :precision => 38, :scale => 10
+    t.decimal  "lat",                        :precision => 38, :scale => 10
+    t.decimal  "lng",                        :precision => 38, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category",      :limit => 1
+    t.integer  "parent_id",                  :precision => 38, :scale => 0
+    t.integer  "members_count",              :precision => 38, :scale => 0,  :default => 0
+  end
+
+  create_table "t", :id => false, :force => true do |t|
+    t.string "test_value", :limit => 25
   end
 
 end
