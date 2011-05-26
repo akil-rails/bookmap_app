@@ -18,7 +18,7 @@ class Store < ActiveRecord::Base
       data = resp.body
 
       result = ActiveSupport::JSON.decode(data)
-      puts "#{result} - #{mems.length} - #{members_needing_computation.length}"
+      puts "#{mems.length} - #{members_needing_computation.length}"
       if ( result['status'] == "OK" )
         result['rows'].each_with_index do |r, i|
           if ( r['elements'][0]['status'] == "OK" )
@@ -29,6 +29,7 @@ class Store < ActiveRecord::Base
       else
         puts result['status']
       end
+      sleep 10
     end
   end
 end
